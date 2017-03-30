@@ -1,8 +1,14 @@
 
 var socket;
+var trump;
+var obama;
 
 function setup(){
-   createCanvas(800, 800);
+
+   createCanvas(windowWidth, windowHeight);
+
+    trump = loadImage("assets/trump.png");
+    obama = loadImage("assets/obama.png");
 
    socket = io.connect();
    socket.on('mouse', newDrawing);
@@ -13,12 +19,17 @@ function setup(){
     osc.amp(0);
     osc.start();
 
+    for(var i=0; i<6; i++){
+      line(90, 90, windowWidth-20, windowWidth-20);
+    }
+    
+
 }
 
 function newDrawing(data){
 
   fill(random(0, 255));
-  rect(data.x, data.y, 80, 80);
+  image(trump, data.x, data.y, 200, 300);
   osc.amp(0.5)
   osc.freq(data.x);
 }
@@ -39,7 +50,7 @@ function mouseDragged(){
   } else {
     fill(255);
   }
-  ellipse(mouseX, mouseY, 80, 80);
+  image(obama, mouseX, mouseY, 200, 300)
 }
 
 function draw(){ 
