@@ -4,7 +4,7 @@ var socket;
 function setup(){
    createCanvas(800, 800);
 
-   socket = io.connect('http://localhost:3000');
+   socket = io.connect('https://mysterious-bastion-37866.herokuapp.com:3000');
    socket.on('mouse', newDrawing);
 
 }
