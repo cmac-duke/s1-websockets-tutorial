@@ -19,18 +19,20 @@ function setup(){
     osc.amp(0);
     osc.start();
 
-    for(var i=0; i<6; i++){
-      line(90, 90, windowWidth-20, windowWidth-20);
-    }
-    
 
+    saw = new p5.Oscillator();
+    saw.setType('sawtooth');
+    saw.freq(240);
+    saw.amp(0);
+    saw.start();
+    
 }
 
 function newDrawing(data){
 
   fill(random(0, 255));
   image(trump, data.x, data.y, 200, 300);
-  osc.amp(0.5)
+  osc.amp(0.5);
   osc.freq(data.x);
 }
 
@@ -50,7 +52,9 @@ function mouseDragged(){
   } else {
     fill(255);
   }
-  image(obama, mouseX, mouseY, 200, 300)
+  image(obama, mouseX, mouseY, 200, 300);
+  saw.amp(0.5);
+  saw.freq(mouseX);
 }
 
 function draw(){ 
