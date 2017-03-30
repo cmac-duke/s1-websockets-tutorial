@@ -2,11 +2,11 @@ Hi all,
 
 Here's the code for basic websocket setup.
 -----
-to run:
-open terminal
-cd s1LabWorkshop-master
-npm init
-node server
+to run:<br>
+open terminal<br>
+cd s1LabWorkshop-master<br>
+npm init<br>
+node server<br>
 
 go to localhost:3000 in two different browsers
 ----
