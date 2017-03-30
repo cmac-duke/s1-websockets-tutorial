@@ -32,8 +32,8 @@ function newDrawing(data){
 
   fill(random(0, 255));
   image(trump, data.x, data.y, 200, 300);
-  osc.amp(0.5);
-  osc.freq(data.x);
+  saw.amp(0.5);
+  saw.freq(data.x);
 }
 
 function mouseDragged(){
@@ -46,17 +46,18 @@ function mouseDragged(){
 
 	socket.emit('mouse', data);
 
-
-  if (mouseIsPressed) {
-    fill(random(0, 255), random(0, 255), random(0, 255));
-  } else {
-    fill(255);
-  }
   image(obama, mouseX, mouseY, 200, 300);
-  saw.amp(0.5);
-  saw.freq(mouseX);
 }
 
 function draw(){ 
+
+    if (mouseIsPressed) {
+    fill(random(0, 255), random(0, 255), random(0, 255));
+    osc.amp(0.5);
+    osc.freq(mouseX);
+  } else {
+    fill(255);
+    osc.amp(0);
+  }
 
 }
