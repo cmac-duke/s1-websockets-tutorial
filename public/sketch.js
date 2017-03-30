@@ -21,7 +21,7 @@ function setup(){
 
 
     saw = new p5.Oscillator();
-    saw.setType('sawtooth');
+    saw.setType('square');
     saw.freq(240);
     saw.amp(0);
     saw.start();
@@ -32,7 +32,7 @@ function newDrawing(data){
 
   fill(random(0, 255));
   image(trump, data.x, data.y, 200, 300);
-  saw.amp(0.5);
+  saw.amp(0.2);
   saw.freq(data.x);
 }
 
