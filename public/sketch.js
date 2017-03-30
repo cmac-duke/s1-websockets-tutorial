@@ -7,13 +7,20 @@ function setup(){
    socket = io.connect();
    socket.on('mouse', newDrawing);
 
+    osc = new p5.Oscillator();
+    osc.setType('sine');
+    osc.freq(240);
+    osc.amp(0);
+    osc.start();
+
 }
 
 function newDrawing(data){
 
   fill(random(0, 255));
   rect(data.x, data.y, 80, 80);
-
+  osc.amp(0.5)
+  osc.freq(data.x);
 }
 
 function mouseDragged(){
